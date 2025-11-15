@@ -12,6 +12,8 @@ struct Node{
     next=NULL;
 	}
 };
+
+
 void showInstructions() {
     cout<<"======================================="<<endl;
     cout<<"         WELCOME TO THE GAME!          "<<endl;
@@ -26,7 +28,17 @@ void showInstructions() {
 }
 
 int main(){
+    int levelChoice;
+    cout<<"Select Difficulty Level:" << endl;
+    cout<<"1. Easy" << endl;
+    cout<<"2. Medium" << endl;
+    cout<<"3. Hard" << endl;
+    cout<<"Enter your choice (1-3): ";
+    cin>> levelChoice;
+    cin.ignore();
+
 	showInstructions();
     return 0;
+
 	
 }
