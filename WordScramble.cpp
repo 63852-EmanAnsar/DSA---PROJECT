@@ -13,6 +13,7 @@ struct Node{
 	}
 };
 
+
 void showInstructions() {
     cout<<"======================================="<<endl;
     cout<<"         WELCOME TO THE GAME!          "<<endl;
