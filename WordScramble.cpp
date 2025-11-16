@@ -13,6 +13,21 @@ struct Node{
 	}
 };
 
+void insertNode(Node*& head, const string& word, const string& hint) {
+    Node* newNode=new Node(word, hint);
+
+    if (head==NULL) {
+        head=newNode;
+        return;
+    }
+
+    Node* temp=head;
+    while (temp->next!=NULL)
+        temp=temp->next;
+
+    temp->next=newNode;
+}
+
 
 void showInstructions() {
     cout<<"======================================="<<endl;
@@ -28,6 +43,7 @@ void showInstructions() {
 }
 
 int main(){
+	showInstructions();
     int levelChoice;
     cout<<"Select Difficulty Level:" << endl;
     cout<<"1. Easy" << endl;
@@ -36,8 +52,6 @@ int main(){
     cout<<"Enter your choice (1-3): ";
     cin>> levelChoice;
     cin.ignore();
-
-	showInstructions();
     return 0;
 
 	
