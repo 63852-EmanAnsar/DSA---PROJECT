@@ -28,6 +28,17 @@ void insertNode(Node*& head, const string& word, const string& hint) {
     temp->next=newNode;
 }
 
+int countNodes(Node* head) {
+    int count=0;
+    Node* temp=head;
+
+    while (temp!=NULL) {
+        count++;
+        temp=temp->next;
+    }
+
+    return count;
+}
 
 void showInstructions() {
     cout<<"======================================="<<endl;
