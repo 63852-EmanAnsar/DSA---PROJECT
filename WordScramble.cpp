@@ -1,4 +1,5 @@
 #include<iostream>
+#include <fstream>
 using namespace std;
 
 struct Node{
@@ -33,12 +34,23 @@ int main(){
     cout<<"1. Easy" << endl;
     cout<<"2. Medium" << endl;
     cout<<"3. Hard" << endl;
-    cout<<"Enter your choice (1-3): ";
+    cout<<"Enter your choice (1-3):";
     cin>> levelChoice;
     cin.ignore();
+    
+    
+string filename;
 
-	showInstructions();
+if(levelChoice==1) filename= "easy.txt";
+else if(levelChoice== 2) filename= "medium.txt";
+else filename = "hard.txt";
+
+ifstream file(filename.c_str());
+if(!file) {
+    cout<<"Error: Could not open " <<filename<<" file!\n";
+    return 1;
+}
+    showInstructions();
     return 0;
-
 	
 }
