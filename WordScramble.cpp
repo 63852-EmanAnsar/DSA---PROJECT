@@ -64,4 +64,21 @@ int main(){
     cout<<"Enter your choice (1-3):";
     cin>> levelChoice;
     cin.ignore();
+    
+    
+string filename;
+
+if(levelChoice== 1) 
+filename = "easy.txt";
+else if (levelChoice== 2) 
+filename= "medium.txt";
+else filename = "hard.txt";
+
+ifstream file(filename.c_str());
+if(!file) {
+    cout<< "Error: Could not open " << filename << " file!\n";
+    return 1;
+}
+	
+ }
 
