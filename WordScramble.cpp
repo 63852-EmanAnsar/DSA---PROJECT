@@ -41,6 +41,18 @@ int countNodes(Node* head) {
     return count;
 }
 
+Node* getNode(Node* head, int index) {
+    Node* temp=head;
+    int i=0;
+
+    while (temp!=NULL && i<index) {
+        temp=temp->next;
+        i++;
+    }
+
+    return temp;
+}
+
 void showInstructions() {
     cout<<"======================================="<<endl;
     cout<<"         WELCOME TO THE GAME!          "<<endl;
@@ -55,6 +67,7 @@ void showInstructions() {
 }
 
 int main(){
+	Node* head=NULL;
 	showInstructions();
     int levelChoice;
     cout<<"Select Difficulty Level:" << endl;
