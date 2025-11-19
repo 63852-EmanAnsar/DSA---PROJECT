@@ -67,7 +67,22 @@ void showInstructions() {
 }
 
 int main(){
-	Node* head=NULL;
+	
+    Node* head=NULL;
+    int total;
+    
+    insertNode(head, "apple", "a fruit");
+    insertNode(head, "dog", "loyal animal");
+    insertNode(head, "book", "good habit");
+    total=countNodes(head);
+    cout<<"Total words in list: "<<total<<endl;
+    cout<<"Words in list:\n";
+    Node* temp=head;
+    while(temp!=NULL) {
+        cout<<temp->word<<": "<< temp->hint<<endl;
+        temp=temp->next;
+    }
+
 	showInstructions();
     int levelChoice;
     cout<<"Select Difficulty Level:" << endl;
@@ -79,19 +94,19 @@ int main(){
     cin.ignore();
     
     
-string filename;
+    string filename;
 
-if(levelChoice== 1) 
-filename = "easy.txt";
-else if (levelChoice== 2) 
-filename= "medium.txt";
-else filename = "hard.txt";
+   if(levelChoice== 1) 
+   filename = "easy.txt";
+   else if (levelChoice== 2) 
+   filename= "medium.txt";
+   else filename = "hard.txt";
 
-ifstream file(filename.c_str());
-if(!file) {
-    cout<< "Error: Could not open " << filename << " file!\n";
-    return 1;
+   ifstream file(filename.c_str());
+   if(!file) {
+   cout<< "Error: Could not open " << filename << " file!\n";
+   return 1;
 }
-	
+   return 0;
  }
 
