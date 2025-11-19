@@ -69,21 +69,7 @@ void showInstructions() {
 int main(){
 	
     Node* head=NULL;
-    int total;
-    
-    insertNode(head, "apple", "a fruit");
-    insertNode(head, "dog", "loyal animal");
-    insertNode(head, "book", "good habit");
-    total=countNodes(head);
-    cout<<"Total words in list: "<<total<<endl;
-    cout<<"Words in list:\n";
-    Node* temp=head;
-    while(temp!=NULL) {
-        cout<<temp->word<<": "<< temp->hint<<endl;
-        temp=temp->next;
-    }
-
-	showInstructions();
+    showInstructions();
     int levelChoice;
     cout<<"Select Difficulty Level:" << endl;
     cout<<"1. Easy" << endl;
