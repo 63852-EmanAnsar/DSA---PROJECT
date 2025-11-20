@@ -1,5 +1,6 @@
 #include<iostream>
 #include <fstream>
+#include <string>
 using namespace std;
 
 struct Node{
@@ -68,8 +69,9 @@ void showInstructions() {
 
 int main(){
 	
-    Node* head=NULL;
-    showInstructions();
+showInstructions();
+Node* head = NULL;
+
     int levelChoice;
     cout<<"Select Difficulty Level:" << endl;
     cout<<"1. Easy" << endl;
@@ -93,6 +95,15 @@ int main(){
    cout<< "Error: Could not open " << filename << " file!\n";
    return 1;
 }
-   return 0;
+
+string word, hint;
+while(file >> word) {
+    getline(file, hint);
+    if(hint.size()>0 && hint[0]==' ')hint.erase(0, 1);
+    insertNode(head, word, hint);
+}
+
+file.close();
+return 0;
  }
 
