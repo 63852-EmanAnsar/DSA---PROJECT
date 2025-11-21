@@ -1,6 +1,9 @@
 #include<iostream>
 #include <fstream>
 #include <string>
+#include <cstdlib>   
+#include <ctime> 
+
 using namespace std;
 
 struct Node{
@@ -54,6 +57,15 @@ Node* getNode(Node* head, int index) {
     return temp;
 }
 
+string scrambleWord(string word) {
+    int n=word.length();
+    for (int i= n-1; i>0; i--) {
+        int j=rand() % (i + 1);
+        swap(word[i], word[j]);
+    }
+    return word;
+}
+
 void showInstructions() {
     cout<<"======================================="<<endl;
     cout<<"         WELCOME TO THE GAME!          "<<endl;
@@ -81,7 +93,6 @@ Node* head = NULL;
     cin>> levelChoice;
     cin.ignore();
     
-    
     string filename;
 
    if(levelChoice== 1) 
@@ -97,13 +108,35 @@ Node* head = NULL;
 }
 
 string word, hint;
-while(file >> word) {
+while(file>> word) {
     getline(file, hint);
     if(hint.size()>0 && hint[0]==' ')hint.erase(0, 1);
     insertNode(head, word, hint);
 }
 
 file.close();
-return 0;
- }
+srand(time(0));
+int totalWords = countNodes(head);
+
+int score=0;
+int wordsPlayed=0;
+const int MAX_WORDS=5;
+bool exitGame= false;
+
+while (wordsPlayed < MAX_WORDS && !exitGame)
+
+{
+int randomIndex= rand() % totalWords;
+Node* current = getNode(head, randomIndex);
+string scrambled = scrambleWord(current->word);
+
+string guess;
+
+int attempts=3;
+int hintCount=0;
+
+cout<<"\nScrambled word: "<<scrambled<<endl;
+cout<<"Hint: "<<current->hint<<endl;}
+
+}
 
