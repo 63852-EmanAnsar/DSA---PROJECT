@@ -64,6 +64,13 @@ void giveHint(Node* current, int &hintCount, int &levelHintCount) {
         return;
     }
     
+    if (hintCount==0) {
+        cout<<"Hint 1: Starts with '"<<current->word[0]<<"' and has "<<current->word.length()<<" letters.\n";
+        hintCount++;
+        levelHintCount++;
+        return;
+    }
+    
 }
 
 
