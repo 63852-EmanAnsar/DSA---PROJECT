@@ -57,6 +57,16 @@ Node* getNode(Node* head, int index) {
     return temp;
 }
 
+void giveHint(Node* current, int &hintCount, int &levelHintCount) {
+	
+    if (levelHintCount>=2) {
+        cout<<"No hints left for this level!\n";
+        return;
+    }
+    
+}
+
+
 string scrambleWord(string word) {
     int n=word.length();
     for (int i= n-1; i>0; i--) {
@@ -81,8 +91,8 @@ void showInstructions() {
 
 int main(){
 	
-showInstructions();
-Node* head = NULL;
+    showInstructions();
+    Node* head = NULL;
 
     int levelChoice;
     cout<<"Select Difficulty Level:" << endl;
@@ -107,36 +117,37 @@ Node* head = NULL;
    return 1;
 }
 
-string word, hint;
-while(file>> word) {
-    getline(file, hint);
-    if(hint.size()>0 && hint[0]==' ')hint.erase(0, 1);
-    insertNode(head, word, hint);
+   string word, hint;
+   while(file>> word) {
+   getline(file, hint);
+   if(hint.size()>0 && hint[0]==' ')
+   hint.erase(0, 1);
+   insertNode(head, word, hint);
 }
 
-file.close();
-srand(time(0));
-int totalWords = countNodes(head);
+   file.close();
+   srand(time(0));
+   int totalWords = countNodes(head);
 
-int score=0;
-int wordsPlayed=0;
-const int MAX_WORDS=5;
-bool exitGame= false;
+   int score=0;
+   int wordsPlayed=0;
+   const int MAX_WORDS=5;
+   bool exitGame= false;
 
-while (wordsPlayed < MAX_WORDS && !exitGame)
+   while (wordsPlayed < MAX_WORDS && !exitGame)
 
 {
-int randomIndex= rand() % totalWords;
-Node* current = getNode(head, randomIndex);
-string scrambled = scrambleWord(current->word);
+   int randomIndex= rand() % totalWords;
+   Node* current = getNode(head, randomIndex);
+   string scrambled = scrambleWord(current->word);
 
-string guess;
+   string guess;
 
-int attempts=3;
-int hintCount=0;
+   int attempts=3;
+   int hintCount=0;
 
-cout<<"\nScrambled word: "<<scrambled<<endl;
-cout<<"Hint: "<<current->hint<<endl;}
+   cout<<"\nScrambled word: "<<scrambled<<endl;
+   cout<<"Hint: "<<current->hint<<endl;}
 
 }
 
