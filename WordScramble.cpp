@@ -71,6 +71,13 @@ void giveHint(Node* current, int &hintCount, int &levelHintCount) {
         return;
     }
     
+    if (hintCount==1) {
+        cout<<"Hint 2: Ends with '"<<current->word[current->word.length()-1]<<"'\n";
+        hintCount++;
+        levelHintCount++;
+        return;
+    }
+    
 }
 
 
