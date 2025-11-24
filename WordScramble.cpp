@@ -170,6 +170,44 @@ int main(){
 
    cout<<"\nScrambled word: "<<scrambled<<endl;
    cout<<"Hint: "<<current->hint<<endl;}
+ while (attempts > 0)
+{
+    cout<<"\nYour Guess (hint/skip/exit): ";
+    getline(cin, guess);
 
+    guess=trim(guess);
+
+    string guessLower=toLowerStr(guess);
+    string wordLower=toLowerStr(current->word);
+
+    if (guessLower=="exit") {
+        exitGame=true;
+        break;
+    }
+
+    if (guessLower=="hint") {
+        giveHint(current, hintCount, levelHintCount);
+        continue;
+    }
+
+    if (guessLower=="skip") {
+        cout<<"Word skipped! Correct word: "<<current->word<<endl;
+        break;
+    }
+
+    if (guessLower==wordLower) {
+        cout<<"Correct! Well done!\n";
+        score++;
+        correctGuesses.push(current->word);
+        break;
+    }
+    else {
+        attempts--;
+        if (attempts>0)
+            cout<<"Wrong! Attempts left: "<<attempts<<endl;
+        else
+            cout<<"Out of attempts! Correct word: "<<current->word<<endl;
+    }
 }
+
 
