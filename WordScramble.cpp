@@ -3,6 +3,7 @@
 #include <string>
 #include <cstdlib>   
 #include <ctime> 
+#include<cctype>
 
 using namespace std;
 
@@ -88,6 +89,13 @@ string scrambleWord(string word) {
         swap(word[i], word[j]);
     }
     return word;
+}
+
+string toLowerStr(string s) {
+    for (int i= 0; i<s.length(); i++) {
+        s[i]=tolower(s[i]);
+    }
+    return s;
 }
 
 void showInstructions() {
