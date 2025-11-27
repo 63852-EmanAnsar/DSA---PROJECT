@@ -98,6 +98,13 @@ string toLowerStr(string s) {
     return s;
 }
 
+
+string trim(const string& s) {
+    size_t start = s.find_first_not_of(" \t\n\r");
+    size_t end = s.find_last_not_of(" \t\n\r");
+    if (start == string::npos) return "";
+    return s.substr(start, end - start + 1);
+}
 void showInstructions() {
     cout<<"======================================="<<endl;
     cout<<"         WELCOME TO THE GAME!          "<<endl;
@@ -115,6 +122,7 @@ int main(){
 	
     showInstructions();
     Node* head = NULL;
+    queue<string> correctGuesses;
 
     int levelChoice;
     cout<<"Select Difficulty Level:" << endl;
@@ -167,6 +175,7 @@ int main(){
 
    int attempts=3;
    int hintCount=0;
+   int levelHintCount = 0; 
 
    cout<<"\nScrambled word: "<<scrambled<<endl;
    cout<<"Hint: "<<current->hint<<endl;
