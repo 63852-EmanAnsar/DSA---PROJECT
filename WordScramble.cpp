@@ -179,7 +179,7 @@ int main(){
    int levelHintCount = 0; 
 
    cout<<"\nScrambled word: "<<scrambled<<endl;
-   cout<<"Hint: "<<current->hint<<endl;
+   cout<<"Hint: "<<current->hint<<endl;}
  while (attempts > 0)
 {
     cout<<"\nYour Guess (hint/skip/exit): ";
@@ -209,12 +209,7 @@ int main(){
         cout<<"Correct! Well done!\n";
         score++;
         correctGuesses.push(current->word);
-        
-        while (!correctGuesses.empty()) {
-                        cout<<"-"<<correctGuesses.front()<<endl;
-                        correctGuesses.pop();
-                    }
-    break;
+        break;
     }
     else {
         attempts--;
@@ -224,6 +219,5 @@ int main(){
             cout<<"Out of attempts! Correct word: "<<current->word<<endl;
     }
 }
-}}
 
 
