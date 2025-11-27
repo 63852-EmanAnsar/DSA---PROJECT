@@ -4,6 +4,7 @@
 #include <cstdlib>   
 #include <ctime> 
 #include<cctype>
+#include <queue>
 
 using namespace std;
 
