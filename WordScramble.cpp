@@ -218,10 +218,10 @@ int main(){
         else
             cout<<"Out of attempts! Correct word: "<<current->word<<endl;
     }
+}
    
    wordsPlayed++ ;
-}
-return 0;
+
 }}
 
 
