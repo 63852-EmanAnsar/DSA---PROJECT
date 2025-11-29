@@ -179,8 +179,8 @@ int main(){
    int levelHintCount = 0; 
 
    cout<<"\nScrambled word: "<<scrambled<<endl;
-   cout<<"Hint: "<<current->hint<<endl;}
- while (attempts > 0)
+   cout<<"Hint: "<<current->hint<<endl;
+   while (attempts > 0)
 {
     cout<<"\nYour Guess (hint/skip/exit): ";
     getline(cin, guess);
@@ -218,6 +218,10 @@ int main(){
         else
             cout<<"Out of attempts! Correct word: "<<current->word<<endl;
     }
+   
+   wordsPlayed++ ;
 }
+return 0;
+}}
 
 
