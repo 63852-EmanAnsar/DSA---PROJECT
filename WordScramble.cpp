@@ -260,4 +260,5 @@ int main(){
 
         }
 }
+    cout<<"\nGoodbye! Game ending, thanks for playing!\n";
 }
