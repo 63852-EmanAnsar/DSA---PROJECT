@@ -123,13 +123,10 @@ void showInstructions() {
 int main(){
 	srand(time(0));
 	char selectLevelAgain='y';
-<<<<<<< HEAD
+
 	showInstructions();
-	
-	
+
 	while( selectLevelAgain=='y'|| selectLevelAgain=='Y') {
-	
->>>>>>> 6af409b37661436590af4766a90d7ceb76859a13
     Node* head = NULL;
     queue<string> correctGuesses;
     
@@ -263,9 +260,6 @@ int main(){
 
         }
 }
- 
-
-
 }
 
 
