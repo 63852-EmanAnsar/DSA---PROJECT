@@ -123,10 +123,17 @@ void showInstructions() {
 int main(){
 	srand(time(0));
 	char selectLevelAgain='y';
-	showInstructions();
+	
+	while( selectLevelAgain=='y'|| selectLevelAgain=='Y') {
 	
     Node* head = NULL;
     queue<string> correctGuesses;
+    
+    cout<<"==================================\n";,
+    cout<<"    WELCOME TO WORD SCRAMBLE GAME   "
+      cout<<"==================================\n";
+      showInstructions();
+    
 
     int levelChoice;
     cout<<"Select Difficulty Level:" << endl;
@@ -231,7 +238,7 @@ int main(){
             temp=head;
             head=head->next;
             delete temp;
-        }
+        } }
 
 }
 
