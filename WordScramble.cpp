@@ -245,7 +245,7 @@ int main(){
         }
 
         if (!exitGame) {
-            cout<<\nPlay again?(y/n): ";
+            cout<<"\nPlay again?(y/n): ";
             cin>>selectLevelAgain;
             cin.ignore();
         } else {
@@ -261,5 +261,3 @@ int main(){
         }
 }
 }
-
-
