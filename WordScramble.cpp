@@ -129,12 +129,7 @@ int main(){
 	while( selectLevelAgain=='y'|| selectLevelAgain=='Y') {
     Node* head = NULL;
     queue<string> correctGuesses;
-    
-    cout<<"==================================\n";
-    cout<<"    WELCOME TO WORD SCRAMBLE GAME   ";
-    cout<<"==================================\n";
-      showInstructions();
-    
+      
 
     int levelChoice;
     cout<<"Select Difficulty Level:" << endl;
@@ -147,11 +142,11 @@ int main(){
     
     string filename;
 
-   if(levelChoice== 1) 
-   filename = "easy.txt";
-   else if (levelChoice== 2) 
-   filename= "medium.txt";
-   else filename = "hard.txt";
+    if(levelChoice== 1) 
+    filename = "easy.txt";
+    else if (levelChoice== 2) 
+    filename= "medium.txt";
+    else filename = "hard.txt";
 
    ifstream file(filename.c_str());
    if(!file) {
