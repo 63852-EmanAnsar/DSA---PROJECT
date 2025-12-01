@@ -129,9 +129,9 @@ int main(){
     Node* head = NULL;
     queue<string> correctGuesses;
     
-    cout<<"==================================\n";,
-    cout<<"    WELCOME TO WORD SCRAMBLE GAME   "
-      cout<<"==================================\n";
+    cout<<"==================================\n";
+    cout<<"    WELCOME TO WORD SCRAMBLE GAME   ";
+    cout<<"==================================\n";
       showInstructions();
     
 
