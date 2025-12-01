@@ -67,7 +67,7 @@ void giveHint(Node* current, int &hintCount, int &levelHintCount) {
     }
     
     if (hintCount==0) {
-        cout<<"Hint 1: Starts with '"<<current->word[0];
+        cout<<"Hint 1: The word starts with '"<<current->word[0]<<"'\n";
         hintCount++;
         levelHintCount++;
         return;
@@ -111,7 +111,7 @@ void showInstructions() {
     cout<<"         WELCOME TO THE GAME!          "<<endl;
     cout<<"======================================="<<endl;
     cout<<"Instructions:"<<endl;
-    cout<<"1. You will be asked questions one by one."<<endl;
+    cout<<"1. You will be asked to scramble words one by one."<<endl;
     cout<<"2. Type your answer and press Enter."<<endl;
     cout<<"3. To exit the current level, type 'exit'."<<endl;
     cout<<"4. To quit the entire game, type 'quit'."<<endl;
@@ -206,7 +206,7 @@ int main(){
     }
 
     if (guessLower==wordLower) {
-        cout<<"Correct! Well done!\n";
+        cout<<"Correct! Well done! Moving to the next word\n";
         score++;
         correctGuesses.push(current->word);
         break;
@@ -222,6 +222,13 @@ int main(){
    
    wordsPlayed++ ;
 
-}}
+}
+     Node* temp;
+        while (head!=NULL) {
+            temp=head;
+            head=head->next;
+            delete temp;
+        }
+	}
 
 
