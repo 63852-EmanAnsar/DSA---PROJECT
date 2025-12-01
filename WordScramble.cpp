@@ -62,7 +62,7 @@ Node* getNode(Node* head, int index) {
 void giveHint(Node* current, int &hintCount, int &levelHintCount) {
 	
     if (levelHintCount>=2) {
-        cout<<"No hints left for this level!\n";
+        cout<<"No hints left for this word!\n";
         return;
     }
     
@@ -108,15 +108,20 @@ string trim(const string& s) {
 }
 
 void showInstructions() {
-    cout<<"======================================="<<endl;
-    cout<<"         WELCOME TO THE GAME!          "<<endl;
-    cout<<"======================================="<<endl;
+    cout<<"=============================================="<<endl;
+    cout<<"      WELCOME TO THE WORD SCRAMBLE GAME!          "<<endl;
+    cout<<"=============================================="<<endl;
     cout<<"Instructions:"<<endl;
-    cout<<"1. You will be asked to scramble words one by one."<<endl;
-    cout<<"2. Type your answer and press Enter."<<endl;
-    cout<<"3. To exit the current level, type 'exit'."<<endl;
-    cout<<"4. To quit the entire game, type 'quit'."<<endl;
-    cout<<"5. Your final score will be shown at the end."<<endl;
+    cout<<"1. You will be asked to scramble words and select level."<<endl;
+    cout<<"2. There will be three rounds in each level."<<endl;
+    cout<<"3. Type your answer and press Enter."<<endl;
+    cout<<"4. If you want hint type 'hint.'"<<endl;
+    cout<<"5. You will be given 2 hints for each word."<<endl;
+    cout<<"6. If you want to skip word type 'skip'."<<endl;
+    cout<<"7. Skipped word will be shown correctly."<<endl;
+    cout<<"8. If you want to exit type 'exit'"<<endl;
+    cout<<"9. After each level playAgain will be shown."<<endl;
+    cout<<"10.Your final score and corrected words will be shown at the end."<<endl;
     cout<<"======================================="<<endl;
 }
 
@@ -168,7 +173,7 @@ int main(){
 
    int score=0;
    int wordsPlayed=0;
-   const int MAX_WORDS=5;
+   const int MAX_WORDS=3;
    bool exitGame= false;
    while (wordsPlayed < MAX_WORDS && !exitGame)
 
