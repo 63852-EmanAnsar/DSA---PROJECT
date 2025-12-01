@@ -167,8 +167,6 @@ int main(){
    int wordsPlayed=0;
    const int MAX_WORDS=5;
    bool exitGame= false;
-   
-   char selectLevelAgain='y';
    while (wordsPlayed < MAX_WORDS && !exitGame)
 
 {
