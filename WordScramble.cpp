@@ -125,9 +125,7 @@ int main(){
 	char selectLevelAgain='y';
 <<<<<<< HEAD
 	showInstructions();
-	while (selectLevelAgain == 'Y'|| selectLevelAgain == 'y' ){
 	
-=======
 	
 	while( selectLevelAgain=='y'|| selectLevelAgain=='Y') {
 	
@@ -237,18 +235,37 @@ int main(){
    
    wordsPlayed++ ;
 }
+
+   cout<<"\n======================================\n";
+   cout<<"       GAME OVER - FINAL SCORE        \n";
+   cout<<"======================================\n";
+   cout<<"Your final score: "<<score<<endl;
+
+   cout<<"\nWords You Guessed Correctly:\n";
+        while (!correctGuesses.empty()) {
+            cout<<"- "<<correctGuesses.front()<<endl;
+            correctGuesses.pop();
+        }
+
+        if (!exitGame) {
+            cout<<\nPlay again?(y/n): ";
+            cin>>selectLevelAgain;
+            cin.ignore();
+        } else {
+            selectLevelAgain='n';
+            cout<<"\nThanks for playing! Goodbye!\n";
+        }
    Node* temp;
         while (head!=NULL) {
             temp=head;
             head=head->next;
             delete temp;
-<<<<<<< HEAD
+
         }
 }
-=======
-       } }
+ 
 
->>>>>>> 6af409b37661436590af4766a90d7ceb76859a13
+
 }
 
 
