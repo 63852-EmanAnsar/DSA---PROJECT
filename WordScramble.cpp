@@ -1,4 +1,5 @@
-#include<iostream>
+//header files
+#include<iostream> 
 #include <fstream>
 #include <string>
 #include <cstdlib>   
@@ -7,20 +8,25 @@
 #include <queue>
 
 using namespace std;
-
-struct Node{
+//Linked list node
+struct Node{ 
 	string word;
     string hint;
     Node* next;
-    
-    Node(string wo, string hi){
+   
+   //Constructor for new node 
+    Node(string wo, string hi){     
     word=wo;
     hint=hi;
     next=NULL;
 	}
 };
 
-void insertNode(Node*& head, const string& word, const string& hint) {
+//Linked list functions
+
+ //Function for new node insertion
+void insertNode(Node*& head, const string& word, const string& hint) {  
+   
     Node* newNode=new Node(word, hint);
 
     if (head==NULL) {
@@ -35,7 +41,8 @@ void insertNode(Node*& head, const string& word, const string& hint) {
     temp->next=newNode;
 }
 
-int countNodes(Node* head) {
+ //Function to count no. of nodes
+int countNodes(Node* head) {           
     int count=0;
     Node* temp=head;
 
@@ -47,7 +54,8 @@ int countNodes(Node* head) {
     return count;
 }
 
-Node* getNode(Node* head, int index) {
+//Function to count no. of nodes
+Node* getNode(Node* head, int index) {  
     Node* temp=head;
     int i=0;
 
@@ -59,8 +67,10 @@ Node* getNode(Node* head, int index) {
     return temp;
 }
 
-void giveHint(Node* current, int &hintCount, int &levelHintCount) {
-	
+//Game logic funtions
+void giveHint(Node* current, int &hintCount, int &levelHintCount) { 
+
+    //Function for hints
     if (levelHintCount>=2) {
         cout<<"No hints left for this word!\n";
         return;
@@ -82,8 +92,8 @@ void giveHint(Node* current, int &hintCount, int &levelHintCount) {
     
 }
 
-
-string scrambleWord(string word) {
+//Function for scrambling words randomly
+string scrambleWord(string word) { 
     int n=word.length();
     for (int i= n-1; i>0; i--) {
         int j=rand() % (i + 1);
@@ -92,21 +102,23 @@ string scrambleWord(string word) {
     return word;
 }
 
-string toLowerStr(string s) {
+//Function to convert string to lowercase
+string toLowerStr(string s) { 
     for (int i= 0; i<s.length(); i++) {
         s[i]=tolower(s[i]);
     }
     return s;
 }
 
-
-string trim(const string& s) {
+//Function for trimming whitespaces
+string trim(const string& s) {  
     size_t start = s.find_first_not_of(" \t\n\r");
     size_t end = s.find_last_not_of(" \t\n\r");
     if (start == string::npos) return "";
     return s.substr(start, end - start + 1);
 }
 
+//Game instructions function
 void showInstructions() {
     cout<<"=============================================="<<endl;
     cout<<"      WELCOME TO THE WORD SCRAMBLE GAME!          "<<endl;
@@ -125,17 +137,19 @@ void showInstructions() {
     cout<<"======================================="<<endl;
 }
 
+//Main game execution 
 int main(){
 	srand(time(0));
 	char selectLevelAgain='y';
 
 	showInstructions();
 
-	while( selectLevelAgain=='y'|| selectLevelAgain=='Y') {
+    //Main game loop
+	while( selectLevelAgain=='y'|| selectLevelAgain=='Y') {   
     Node* head = NULL;
     queue<string> correctGuesses;
       
-
+    //Selection of levels
     int levelChoice;
     cout<<"Select Difficulty Level:" << endl;
     cout<<"1. Easy" << endl;
@@ -147,19 +161,21 @@ int main(){
     
     string filename;
 
-    if(levelChoice== 1) 
+    //Filename based on level selected
+    if(levelChoice== 1)             
     filename = "easy.txt";
     else if (levelChoice== 2) 
     filename= "medium.txt";
     else filename = "hard.txt";
-
-   ifstream file(filename.c_str());
+    
+   //File Input/Output
+   ifstream file(filename.c_str()); 
    if(!file) {
    cout<< "Error: Could not open " << filename << " file!\n";
    return 1;
 }
-
-   string word, hint;
+   //Reading hints and words
+   string word, hint; 
    while(file>> word) {
    getline(file, hint);
    if(hint.size()>0 && hint[0]==' ')
@@ -170,58 +186,67 @@ int main(){
    file.close();
   
    int totalWords = countNodes(head);
-
-   int score=0;
+   
+   //Initialization of variables of game
+   int score=0;  
    int wordsPlayed=0;
    const int MAX_WORDS=3;
    bool exitGame= false;
    while (wordsPlayed < MAX_WORDS && !exitGame)
 
-{
-   int randomIndex= rand() % totalWords;
+{ 
+   //Selecting random word index
+   int randomIndex= rand() % totalWords;  
    Node* current = getNode(head, randomIndex);
    string scrambled = scrambleWord(current->word);
 
    string guess;
-
-   int attempts=3;
+   
+   //No. of attempts
+   int attempts=3;  
    int hintCount=0;
    int levelHintCount = 0; 
 
    cout<<"\nScrambled word: "<<scrambled<<endl;
    cout<<"Hint: "<<current->hint<<endl;
-   while (attempts > 0)
+   
+   //Inner loop for guessing attempts
+   while (attempts > 0)              
 {
     cout<<"\nYour Guess (hint/skip/exit): ";
     getline(cin, guess);
 
     guess=trim(guess);
 
-    string guessLower=toLowerStr(guess);
+    string guessLower=toLowerStr(guess);     
     string wordLower=toLowerStr(current->word);
 
-    if (guessLower=="exit") {
+    if (guessLower=="exit") {        //Exit command
         exitGame=true;
         break;
     }
 
-    if (guessLower=="hint") {
+    if (guessLower=="hint") {        //Hint command
         giveHint(current, hintCount, levelHintCount);
         continue;
     }
 
-    if (guessLower=="skip") {
+    if (guessLower=="skip") {        //skip command
         cout<<"Word skipped! Correct word: "<<current->word<<endl;
         break;
     }
 
-    if (guessLower==wordLower) {
+    if (guessLower==wordLower) {     //Checking correct guess
         cout<<"Correct! Well done!\n";
         score++;
-        correctGuesses.push(current->word);
+        
+        //Storing correctly guessed words in queue
+        correctGuesses.push(current->word);    
         break;
     }
-    else {
+    else {   
+    
+        //Handles wrong guess
         attempts--;
         if (attempts>0)
             cout<<"Wrong! Attempts left: "<<attempts<<endl;
@@ -231,20 +256,23 @@ int main(){
 }
    
    wordsPlayed++ ;
-}
+}  //End of game round loop
 
+   //Game ending summary
    cout<<"\n======================================\n";
    cout<<"       GAME OVER - FINAL SCORE        \n";
    cout<<"======================================\n";
    cout<<"Your final score: "<<score<<endl;
 
+   //Displaying all words correctly
    cout<<"\nWords You Guessed Correctly:\n";
         while (!correctGuesses.empty()) {
             cout<<"- "<<correctGuesses.front()<<endl;
             correctGuesses.pop();
         }
-
-        if (!exitGame) {
+        
+        //Asking user to play another level
+        if (!exitGame) {   
             cout<<"\nPlay again?(y/n): ";
             cin>>selectLevelAgain;
             cin.ignore();
@@ -252,7 +280,9 @@ int main(){
             selectLevelAgain='n';
             cout<<"\nThanks for playing! Goodbye!\n";
         }
-   Node* temp;
+        
+   //Cleaning dynamically allocated linked list nodes        
+   Node* temp;     
         while (head!=NULL) {
             temp=head;
             head=head->next;
@@ -260,5 +290,6 @@ int main(){
 
         }
 }
-    cout<<"\nGoodbye! Game ending, thanks for playing!\n";
+    //Final goodbye message
+    cout<<"\nGoodbye! Game ending, thanks for playing!\n";  
 }
