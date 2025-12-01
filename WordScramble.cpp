@@ -106,6 +106,7 @@ string trim(const string& s) {
     if (start == string::npos) return "";
     return s.substr(start, end - start + 1);
 }
+
 void showInstructions() {
     cout<<"======================================="<<endl;
     cout<<"         WELCOME TO THE GAME!          "<<endl;
@@ -120,8 +121,10 @@ void showInstructions() {
 }
 
 int main(){
+	srand(time(0));
+	char selectLevelAgain='y';
+	showInstructions();
 	
-    showInstructions();
     Node* head = NULL;
     queue<string> correctGuesses;
 
@@ -157,14 +160,15 @@ int main(){
 }
 
    file.close();
-   srand(time(0));
+  
    int totalWords = countNodes(head);
 
    int score=0;
    int wordsPlayed=0;
    const int MAX_WORDS=5;
    bool exitGame= false;
-
+   
+   char selectLevelAgain='y';
    while (wordsPlayed < MAX_WORDS && !exitGame)
 
 {
@@ -206,7 +210,7 @@ int main(){
     }
 
     if (guessLower==wordLower) {
-        cout<<"Correct! Well done! Moving to the next word\n";
+        cout<<"Correct! Well done!\n";
         score++;
         correctGuesses.push(current->word);
         break;
@@ -221,14 +225,14 @@ int main(){
 }
    
    wordsPlayed++ ;
-
 }
-     Node* temp;
+   Node* temp;
         while (head!=NULL) {
             temp=head;
             head=head->next;
             delete temp;
         }
-	}
+
+}
 
 
