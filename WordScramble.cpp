@@ -157,8 +157,14 @@ int main(){
      cout<<"1. Easy" << endl;
      cout<<"2. Medium" << endl;
      cout<<"3. Hard" << endl;
+     do{
      cout<<"Enter your choice (1-3):";
      cin>> levelChoice;
+     if (levelChoice<1 || levelChoice>3) {
+     cout<<"Invalid choice! Please enter 1,2,or 3.\n";
+     }
+     } 
+	 while(levelChoice<1 || levelChoice>3);
      cin.ignore();
     
      string filename;
@@ -192,6 +198,13 @@ int main(){
      file.close();
   
      int totalWords = countNodes(head);
+       
+	 
+     if (totalWords==0) {
+     cout<<"\nNo words found in the selected file!"<<endl;
+     cout<<"Please add words to the file and try again.\n";
+     break; 
+}
    
      //Initialization of variables of game
      int score=0;  
@@ -262,6 +275,7 @@ int main(){
  }
    
       wordsPlayed++ ;
+
  }     //End of game round loop
 
      //Game ending summary
@@ -284,7 +298,6 @@ int main(){
             cin.ignore();
          } else {
             selectLevelAgain='n';
-            cout<<"\nThanks for playing! Goodbye!\n";
          }
         
      //Cleaning dynamically allocated linked list nodes        
