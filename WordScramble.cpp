@@ -67,6 +67,28 @@ Node* getNode(Node* head, int index) {
      return temp;
 }
 
+//remove the current node so that it wont appear again in the level
+void removeNode(Node*& head, Node* toDelete) {
+    if (head==NULL || toDelete==NULL) 
+	return;
+
+    if (head==toDelete) {
+        head=head->next;
+        delete toDelete;
+        return;
+    }
+
+    Node* temp=head;
+    while (temp->next!=NULL && temp->next!=toDelete) {
+    temp=temp->next;
+    }
+
+    if (temp->next==toDelete) {
+    temp->next=toDelete->next;
+    delete toDelete;
+    }
+}
+
 //Game logic funtions
 void giveHint(Node* current, int &hintCount, int &levelHintCount) { 
 
@@ -275,6 +297,8 @@ int main(){
  }
    
       wordsPlayed++ ;
+      removeNode(head,current);
+      totalWords--;
 
  }     //End of game round loop
 
