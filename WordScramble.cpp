@@ -148,7 +148,7 @@ void showInstructions() {
      cout<<"=============================================="<<endl;
      cout<<"Instructions:"<<endl;
      cout<<"1. You will be asked to scramble words and select level."<<endl;
-     cout<<"2. There will be three rounds in each level."<<endl;
+     cout<<"2. There will be five rounds in each level."<<endl;
      cout<<"3. Type your answer and press Enter."<<endl;
      cout<<"4. If you want hint type 'hint.'"<<endl;
      cout<<"5. You will be given 2 hints for each word."<<endl;
@@ -231,7 +231,7 @@ int main(){
      //Initialization of variables of game
      int score=0;  
      int wordsPlayed=0;
-     const int MAX_WORDS=3;
+     const int MAX_WORDS=5;
      bool exitGame= false;
     
      
