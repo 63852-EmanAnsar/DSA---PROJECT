@@ -179,16 +179,22 @@ int main(){
      cout<<"1. Easy" << endl;
      cout<<"2. Medium" << endl;
      cout<<"3. Hard" << endl;
-     do{
-     cout<<"Enter your choice (1-3):";
+     while(true){
+	 cout<<"Enter your choice (1-3):";
      cin>> levelChoice;
+      if (cin.fail()) {
+        cin.clear();                
+        cin.ignore(1000, '\n');     
+        cout<<"Invalid input! Please enter a number 1, 2, or 3.\n";
+        continue;                   
+    }
      if (levelChoice<1 || levelChoice>3) {
      cout<<"Invalid choice! Please enter 1,2,or 3.\n";
      }
-     } 
-	 while(levelChoice<1 || levelChoice>3);
+     while(levelChoice<1 || levelChoice>3);
      cin.ignore();
-    
+     break;
+ }
      string filename;
 
      //Filename based on level selected
