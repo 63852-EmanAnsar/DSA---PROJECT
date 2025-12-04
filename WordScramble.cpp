@@ -327,13 +327,22 @@ int main(){
          }
         
          //Asking user to play another level
-         if (!exitGame) {   
-            cout<<"\nPlay again?(y/n): ";
-            cin>>selectLevelAgain;
-            cin.ignore();
-         } else {
-            selectLevelAgain='n';
-         }
+        if (!exitGame) {
+        while (true) {
+        cout<<"\nPlay again? (y/n): ";
+        cin>>selectLevelAgain;
+        cin.ignore();
+
+        if (selectLevelAgain=='y'||selectLevelAgain=='Y'|| selectLevelAgain=='n'||selectLevelAgain=='N') 
+		{
+            break;  
+        } else {
+            cout<<"Invalid input! Please enter 'y' or 'n'.\n";
+        }
+    }
+} else {
+    selectLevelAgain = 'n';
+}
         
      //Cleaning dynamically allocated linked list nodes        
      Node* temp;     
