@@ -258,6 +258,11 @@ int main(){
      cout<<"\nYour Guess (hint/skip/exit): ";
      getline(cin, guess);
      guess=trim(guess);
+     
+    if (guess=="") {
+    cout<<"You didn't enter anything. Please type something.\n";
+    continue;  
+}
 
      string guessLower=toLowerStr(guess);     
      string wordLower=toLowerStr(current->word);
