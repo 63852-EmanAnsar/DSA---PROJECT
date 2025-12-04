@@ -224,7 +224,7 @@ int main(){
 	 
      if (totalWords==0) {
      cout<<"\nNo words found in the selected file!"<<endl;
-     cout<<"Please add words to the file and try again.\n";
+     cout<<"Try again later.\n";
      break; 
 }
    
